@@ -58,7 +58,7 @@ public class AllGrantsServlet extends AbstractServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             List<GrantEntity> grants = grantEntityManager.findAll();
-            grants.forEach(action -> System.out.println("" +action.getApplicantAddress()));
+            grants.forEach(action -> out.println("" +action.getApplicantAddress()));
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
