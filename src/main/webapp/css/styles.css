@@ -1,0 +1,129 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 11, 2018, 11:08:33 AM
+    Author     : sprlajur
+*/
+
+html, body {
+    background-color: white;
+    margin: auto;
+    width: 95%;
+}
+
+#top_menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+#top_menu li {
+    float: left;
+}
+
+#top_menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 16px;
+    text-decoration: none;
+}
+
+a:link, a:visited{
+    color: black;
+}
+
+#top_menu li a:hover {
+    background-color: #111111;
+}
+
+#datatable {
+    border-bottom: 1px solid black;
+}
+
+#datatable, #datatable th, #datatable td {
+    background-color: #eee;
+    padding: 10px;
+    overflow:hidden;
+}
+
+/*#datatable td {
+    text-overflow:ellipsis;
+}*/
+
+/*td.text_cell{
+    min-width: 100px;
+    width: 300px;
+    max-width: 300px;
+}*/
+
+#datatable th {
+    background-color: #47474c;
+    color: white;
+}
+
+ul li span{
+    text-align: right;
+}
+
+.price_cell{
+    white-space:nowrap;
+}
+
+.glyphicon.glyphicon-zoom-in {
+    font-size: 20px;
+}
+
+#sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
+
+.paginationlink {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.basicinfo {
+    height: 250px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.basicinfo strong {
+    float: left;
+    width: 300px;
+}
+
+.basicinfo span {
+    float: left;
+    width: 850px;
+    text-align: left;
+}
+
+table.companytable {
+    margin-bottom: 25px;
+}
+
+table.companytable, table.companytable td, table.companytable th {
+    background-color: #eee;
+    padding: 10px;
+    overflow:hidden;
+}
+
+table.companytable caption {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+}
+
+table.companytable th {
+    background-color: #47474c;
+    color: white;
+}

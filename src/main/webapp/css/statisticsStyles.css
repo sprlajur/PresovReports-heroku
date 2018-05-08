@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 7, 2018, 11:21:29 AM
+    Author     : sprlajur
+*/
+
+table.statisticstable, table.statisticstable td, table.statisticstable th {
+    background-color: #eee;
+    border-collapse: collapse;
+    overflow:hidden;
+}
+
+table.statisticstable caption {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+}
+
+.table-container {
+    display: inline-block;
+    padding-top: 1.875em;
+    position: relative;
+    color: black;
+    width: 100%;
+}
+
+.table-container > div {
+    height: 1.7em;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #47474c;
+}
+
+.table-top-container{
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+
+table.statisticstable {
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+}
+
+table.statisticstable th {
+    /*background-color: #47474c;*/
+    padding: 0 5px;
+    text-align: center;
+}
+
+table.statisticstable th:first-child > div {
+    padding-left: 7px;
+}
+
+table.statisticstable th > div {
+    color: white;
+    line-height: 1.875em;
+    margin-left: -6px;
+    padding-left: 5px;
+    position: absolute;
+    top: 0;
+}
+
+table.statisticstable caption > div {
+    top: 0;
+    position: absolute;
+}
+
+table.statisticstable td {
+    padding: 5px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+}
