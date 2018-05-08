@@ -33,7 +33,7 @@ import javax.validation.constraints.Size;
         ,
     @NamedQuery(name = InvoiceEntity.Q_INVOICE_ENTITY_FIND_TOP_SUPPLIERS_BY_NR_OF_INVOICES, query = "SELECT NEW presentation.TopCompany(i.supplier, i.supplierIco, COUNT(i.supplier)) FROM InvoiceEntity i WHERE i.paymentStatus = 'zaplatené' GROUP BY i.supplier, i.supplierIco ORDER BY COUNT(i.supplierIco) DESC")
         ,
-    @NamedQuery(name = InvoiceEntity.Q_INVOICE_ENTITY_FIND_TOP_INVOICES_BY_PRICE, query = "SELECT i FROM InvoiceEntity i WHERE i.paymentStatus = 'zaplatené' ORDER BY I.price DESC")
+    @NamedQuery(name = InvoiceEntity.Q_INVOICE_ENTITY_FIND_TOP_INVOICES_BY_PRICE, query = "SELECT i FROM InvoiceEntity i WHERE i.paymentStatus = 'zaplatené' ORDER BY i.price DESC")
 })
 public class InvoiceEntity implements Serializable {
 
