@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AllContractsServlet extends AbstractServlet {
 
     private ContractEntityDAO contractEntityManager;
-    private final String JSP_FILE_PATH = "/JSPpages/allContracts.jsp";
+    private final String JSP_FILE_PATH = "JSPpages/allContracts.jsp";
 
     @Override
     public void init() {

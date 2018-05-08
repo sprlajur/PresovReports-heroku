@@ -10,6 +10,7 @@ import constants.RequestAttributeNames;
 import constants.Urls;
 import entity.GrantEntity;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,15 +46,30 @@ public class AllGrantsServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<GrantEntity> grants = grantEntityManager.findAll();
-        setPaginationParameters(request, grants == null ? 0 : grants.size());
-        if (grants != null) {
-            List<BigDecimal> values = grants.stream().map(grant -> grant.getApprovedGrant()).collect(Collectors.toList());
-            setTotalValueAttribute(values, request);
+//        List<GrantEntity> grants = grantEntityManager.findAll();
+//        setPaginationParameters(request, grants == null ? 0 : grants.size());
+//        if (grants != null) {
+//            List<BigDecimal> values = grants.stream().map(grant -> grant.getApprovedGrant()).collect(Collectors.toList());
+//            setTotalValueAttribute(values, request);
+//        }
+//        request.setAttribute(RequestAttributeNames.ALL_GRANTS, grants);
+//        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(JSP_FILE_PATH);
+//        dispatcher.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            List<GrantEntity> grants = grantEntityManager.findAll();
+            grants.forEach(action -> System.out.println("" +action.getApplicantAddress()));
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        request.setAttribute(RequestAttributeNames.ALL_GRANTS, grants);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(JSP_FILE_PATH);
-        dispatcher.forward(request, response);
     }
 
     /**
