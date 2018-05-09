@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(Urls.ABOUT)
 public class AboutServlet extends HttpServlet {
 
-    private final String JSP_FILE_PATH = "/JSPpages/about.jsp";
+    private final String JSP_FILE_PATH = "/WEB-INF/about.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
