@@ -28,7 +28,7 @@ import presentation.TopCompany;
 public class AllInvoicesServlet extends AbstractServlet {
 
     private InvoiceEntityDAO invoiceEntityManager;
-    private final String JSP_FILE_PATH = "/JSPpages/allInvoices.jsp";
+    private final String JSP_FILE_PATH = "allInvoices.jsp";
 
     @Override
     public void init() {

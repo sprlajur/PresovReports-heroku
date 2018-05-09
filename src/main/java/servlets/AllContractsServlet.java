@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AllContractsServlet extends AbstractServlet {
 
     private ContractEntityDAO contractEntityManager;
-    private final String JSP_FILE_PATH = "/allContracts.jsp";
+    private final String JSP_FILE_PATH = "WEB-INF/allContracts.jsp";
 
     @Override
     public void init() {
@@ -47,10 +47,6 @@ public class AllContractsServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        printFiles(".");
-        printFiles("./..");
-        printFiles("./../..");
-        printFiles("./../../..");
         List<ContractEntity> contracts = contractEntityManager.getAllContracts();
         setPaginationParameters(request, contracts == null ? 0 : contracts.size());
         request.setAttribute(RequestAttributeNames.ALL_CONTRACTS, contracts);
@@ -61,28 +57,7 @@ public class AllContractsServlet extends AbstractServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(JSP_FILE_PATH);
         dispatcher.forward(request, response);
     }
-
-    public void printFiles(String path) {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        File curDir = new File(path);
-        getAllFiles(curDir);
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    }
-
-    private static void getAllFiles(File curDir) {
-
-        File[] filesList = curDir.listFiles();
-        for (File f : filesList) {
-            if (f.isDirectory()) {
-                getAllFiles(f);
-            }
-            if (f.isFile()) {
-                System.out.println(f.getName());
-            }
-        }
-
-    } 
-
+    
     /**
      * Handles the HTTP <code>POST</code> method.
      *
