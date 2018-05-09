@@ -9,6 +9,7 @@ import DAO.ContractEntityDAO;
 import constants.RequestAttributeNames;
 import constants.Urls;
 import entity.ContractEntity;
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
@@ -46,6 +47,10 @@ public class AllContractsServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        printFiles(".");
+        printFiles("./..");
+        printFiles("./../..");
+        printFiles("./../../..");
         List<ContractEntity> contracts = contractEntityManager.getAllContracts();
         setPaginationParameters(request, contracts == null ? 0 : contracts.size());
         request.setAttribute(RequestAttributeNames.ALL_CONTRACTS, contracts);
@@ -56,6 +61,27 @@ public class AllContractsServlet extends AbstractServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(JSP_FILE_PATH);
         dispatcher.forward(request, response);
     }
+
+    public void printFiles(String path) {
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        File curDir = new File(path);
+        getAllFiles(curDir);
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    }
+
+    private static void getAllFiles(File curDir) {
+
+        File[] filesList = curDir.listFiles();
+        for (File f : filesList) {
+            if (f.isDirectory()) {
+                getAllFiles(f);
+            }
+            if (f.isFile()) {
+                System.out.println(f.getName());
+            }
+        }
+
+    } 
 
     /**
      * Handles the HTTP <code>POST</code> method.
